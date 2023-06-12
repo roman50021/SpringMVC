@@ -1,11 +1,12 @@
 package com.example.servingwebcontent.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.Map;
 
-@org.springframework.stereotype.Controller
+@Controller
 public class MainController {
     @GetMapping("/")
     public String home(Model model){
@@ -13,10 +14,13 @@ public class MainController {
         return "home";
     }
 
-    @GetMapping("/main")
-    public String main(Map<String, Object> model){
-        model.put("Some", "hello, letsCode!");
-        return "main";
+    @GetMapping("/about")
+    public String about(Model model){
+        model.addAttribute("title", "Страница про нас");
+        return "about";
     }
+
+
+
 
 }
